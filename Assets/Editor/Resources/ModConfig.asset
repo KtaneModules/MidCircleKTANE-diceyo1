@@ -11,12 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615501dbe4f3fe94fbf4b564abb10237, type: 3}
   m_Name: ModConfig
   m_EditorClassIdentifier: 
-  id: smallCircle
-  title: Small Circle
-  author: TasThing
-  description: "Honey, I shrunk the module!\r\n\r\nModule idea and implementation
-    by TasThing.\r\n\r\nManual HTML: https://ktane.timwi.de/HTML/Small%20Circle.html\r\nManual
-    PDF: https://ktane.timwi.de/PDF/Small%20Circle.pdf"
+  id: midCircle
+  title: Mid Circle
+  author: dicey
+  description: "His hair? Mid. His gear? Mid. His jewelery? Mid. His footsteps? Mid.
+    The way that he talks? Mid. The way that he doesn't even like to smile? Mid.\r\n\n\rDeveloped
+    by dicey and Quinn Wuest.\nManual by Quinn Wuest.\n\r\nManual HTML: https://ktane.timwi.de/HTML/Mid%20Circle.html\r\nManual
+    PDF: https://ktane.timwi.de/PDF/Mid%20Circle.pdf"
   version: 1.1
   outputFolder: build
-  previewImage: {fileID: 2800000, guid: 26c2d1d5a57921e4586406732640ee95, type: 3}
+  previewImage: {fileID: 2800000, guid: 158699edfa23bae41b7cbda0268674bc, type: 3}

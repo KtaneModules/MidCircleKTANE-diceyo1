@@ -3634,9 +3634,9 @@ MonoBehaviour:
   m_Script: {fileID: -119419473, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ModuleType: smallCircle
-  ModuleDisplayName: Small Circle
-  RequiresTimerVisibility: 1
+  ModuleType: midCircle
+  ModuleDisplayName: Mid Circle
+  RequiresTimerVisibility: 0
 --- !u!114 &114211928149464702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3889,6 +3889,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: e310ba00b296e524e98424c05b9d3aeb, type: 2}
   circle: {fileID: 1867210148890114}
   ruleSeed: {fileID: 114952187322017138}
+  colorblindMode: {fileID: 114761876098002888}
 --- !u!114 &114474916323322916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4113,7 +4114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cadefbb4e8c0c743893b8a7efee5ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colorblindMode: 1
+  _colorblindMode: 0
 --- !u!114 &114766662481181758
 MonoBehaviour:
   m_ObjectHideFlags: 1

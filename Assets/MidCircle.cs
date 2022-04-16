@@ -18,6 +18,7 @@ public class MidCircle : MonoBehaviour
     public Material[] materials;
     public GameObject circle;
     public KMRuleSeedable ruleSeed;
+    public KMColorblindMode colorblindMode;
 
     private int moduleId;
     private static int moduleIdCounter = 1;
@@ -32,6 +33,7 @@ public class MidCircle : MonoBehaviour
     new Color32(240,0,240,255),
     new Color32(255,255,255,255),
     new Color32(0,0,0,255) };
+    private bool colorblindbool;
     private int[] shuffle = new int[8];
     private bool isClockwise;
     private Coroutine spin;
@@ -52,12 +54,14 @@ public class MidCircle : MonoBehaviour
     private void Start()
     {
         moduleId = moduleIdCounter++;
+        colorblindbool = colorblindMode.ColorblindModeActive;
+        SetColorBlind(colorblindbool);
         var rs = ruleSeed.GetRNG();
         for (int i = 0; i < 7; i++)
         {
             infoTable[i] = Enumerable.Range(0, 8).ToArray();
             rs.ShuffleFisherYates(infoTable[i]);
-            for (int j = 0; j < 25; j++)
+            for (int j = 0; j < 20; j++)
                 rs.Next(0, 2);
         }
         shuffle = Enumerable.Range(0, 8).ToArray().Shuffle();
@@ -95,27 +99,37 @@ public class MidCircle : MonoBehaviour
             spaces[i] = progress-1;
             color = (oldColor+1)%8;
         }
-        Debug.Log(spaces.Join(" "));
+        Debug.LogFormat("[Mid Circle #{0}] The colors to press in order are: {1} {2} {3} {4} {5} {6} {7} {8}", moduleId, colorNames[infoTable[spaces[0]][0]], colorNames[infoTable[spaces[1]][1]], colorNames[infoTable[spaces[2]][2]], colorNames[infoTable[spaces[3]][3]], colorNames[infoTable[spaces[4]][4]], colorNames[infoTable[spaces[5]][5]], colorNames[infoTable[spaces[6]][6]], colorNames[infoTable[spaces[7]][7]]);
     }
+
+    private void SetColorBlind(bool colorblindbool)
+    {
+        for (int i = 0; i < texts.Length; i++)
+            texts[i].gameObject.SetActive(colorblindbool);
+    }
+
     private KMSelectable.OnInteractHandler ButtonPress(int i)
     {
         return delegate ()
         {
-            Debug.LogFormat("[Mid Circle #{0}] pressed {1}", moduleId, colorNames[shuffle[i]]);
+            Audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, buttons[i].transform);
+            buttons[i].AddInteractionPunch();
             if (moduleSolved)
                 return false;
-            Debug.Log(infoTable[spaces[pressCount]][pressCount]);
             if (shuffle[i] == infoTable[spaces[pressCount]][pressCount])
             {
+                Debug.LogFormat("[Mid Circle #{0}] Pressed {1} correctly.", moduleId, colorNames[shuffle[i]]);
                 pressCount++;
                 if (pressCount == 8)
                 {
+                    Debug.LogFormat("[Mid Circle #{0}] The module has been solved! You are mid.", moduleId);
                     moduleSolved = true;
                     module.HandlePass();
                 }
             }
             else
             {
+                Debug.LogFormat("[Mid Circle #{0}] Pressed {1}, when {2} was expected. Strike.", moduleId, shuffle[i], infoTable[spaces[pressCount]][pressCount]);
                 pressCount = 0;
                 module.HandleStrike();
             }
