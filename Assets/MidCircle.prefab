@@ -3861,14 +3861,14 @@ MonoBehaviour:
   - {fileID: 114593633059951454}
   - {fileID: 114311884969799254}
   wedges:
-  - {fileID: 1992556484590812}
-  - {fileID: 1503061216049298}
-  - {fileID: 1843946367172958}
-  - {fileID: 1170556547628592}
-  - {fileID: 1460197081473262}
-  - {fileID: 1531249190713416}
-  - {fileID: 1875135500610884}
-  - {fileID: 1558174462647198}
+  - {fileID: 23621904027233472}
+  - {fileID: 23130573275038114}
+  - {fileID: 23901192815098496}
+  - {fileID: 23142813782733718}
+  - {fileID: 23945157134862044}
+  - {fileID: 23069924649009964}
+  - {fileID: 23909792159458666}
+  - {fileID: 23508998640041926}
   texts:
   - {fileID: 102222940251232722}
   - {fileID: 102793651907738070}
@@ -3890,6 +3890,7 @@ MonoBehaviour:
   circle: {fileID: 1867210148890114}
   ruleSeed: {fileID: 114952187322017138}
   colorblindMode: {fileID: 114761876098002888}
+  gray: {r: 0.627451, g: 0.627451, b: 0.627451, a: 1}
 --- !u!114 &114474916323322916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4149,7 +4150,6 @@ MonoBehaviour:
   - {fileID: 114017611009289590}
   - {fileID: 114593633059951454}
   - {fileID: 114311884969799254}
-  - {fileID: 0}
   IsPassThrough: 0
   ChildRowLength: 1
   Highlight: {fileID: 114489007347939126}
